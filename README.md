@@ -1,10 +1,8 @@
 # terraform_march_2021
-
 ## Please add below code
 ```
 module "rds" {
-    source = "davidffisher/rds-instance/aws"
-
+    source = "farrukh90/rds-instance/aws"
     region              = "us-east-2"
     identifier          = "dbname"
     allocated_storage   = 20
@@ -15,33 +13,27 @@ module "rds" {
     name                = "mydb"
     username            = "foo"
     publicly_accessible = true
-
     subnet_ids = [
-        "subnet-08503731992a62d51",
-        "subnet-0d355a5ce1cb4f65f",
-        "subnet-0cf8b67b61d3373d1"
-]
-
+        "subnet-",
+        "subnet-",
+        "subnet-"
+    ]
     allowed_hosts = [
         "50.194.68.1/32",
         "127.0.0.1/32"
-]
-
+    ]
 }
-
-
-
 output "region" {
-	value = module.wordpress_db.region
+	value = module.rds.region
 }
 output "subnet_list" {
-	value = module.wordpress_db.subnet_list
+	value = module.rds.subnet_list
 }
 output "allowed_hosts" {
-	value = module.wordpress_db.allowed_hosts
+	value = module.rds.allowed_hosts
 }
-output "wordpress_db_NAME" {
-	value = module.wordpress_db.DB_NAME
+output "rds" {
+	value = module.rds.DB_NAME
 }
 ```
 
